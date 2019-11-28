@@ -1,9 +1,22 @@
-## Entry Management Application
+## Table of Contents
 
-This is my submission for innovacor SDE Intern assignment.
+- [Video Demo](#video_demo)
+- [Introduction](#introduction)
+- [Checkout the application on heroku](#heroku)
+- [Screenshots](#screenshots)
+- [Application Stack](#app_stack)
+- [Run the app locally](#local)
+- [Important Note](#imp_note)
+
+
+
+## [Video demo](https://www.youtube.com/watch?v=WhA7RoPlmko)<a name = "video_demo"></a>
+## Entry Management Application<a name = "introduction"></a>
+
+This is my submission for Innovaccer SDE Intern assignment.
 This is a simple Entry Management Application which you can use to keep track of the entries of the guest in your office.
 
-There are two types of users. Host (someone who is hosting a meeting) and guest (someone who goes to the meeting).
+There are two types of users. **Host**(someone who is hosting a meeting) and **Guest**(someone who goes to the meeting).
 
 ### Host
 
@@ -21,7 +34,11 @@ There are two types of users. Host (someone who is hosting a meeting) and guest 
 -   Just like in the real world as long as you don't checkout with a host, you cannot checkin again.
 -   When you will checkout, a message and mail will be sent to you with the details of your visit, therefore please enter a valid email and phone number.
 
-## Screenshots
+### Deployed application<a name = "heroku"></a>
+The application is deployed on heroku (https://entry-management-app.herokuapp.com/).
+Please also read the [important note](#imp_note) below regarding the message and mail sending feature of the application.
+
+## Screenshots<a name = "screenshots"></a>
 
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/34679965/69772816-ff1c8280-11b6-11ea-8b49-f629cd8e09ab.png" alt="homepage"> 
@@ -78,7 +95,7 @@ There are two types of users. Host (someone who is hosting a meeting) and guest 
     <span align="center">The host can also change the password from the change password form.</span>
 </p>
 
-## Technological Stack
+## Application Stack<a name = "app_stack"></a>
 
 -   The backend of the application will be in Flask (Python) with some extensions like Flask-sqlalchemy, Flask-wtforms, Flask-migrate, Flask-login etc.
 -   Sqlite database is used for the development.
@@ -90,7 +107,7 @@ There are two types of users. Host (someone who is hosting a meeting) and guest 
 -   Twilio API to send message notifications. (trial account)
 -   Version control: git and source code is hosted on github.
 
-## Run it locally
+## Run it locally<a name = "local"></a>
 
 -   clone the repository. `git clone <url>`
 -   Create a python virtual environment `python3 -m venv venv` and activate it `source venv/bin/activate`.
@@ -98,12 +115,23 @@ There are two types of users. Host (someone who is hosting a meeting) and guest 
 -   Create a .env file in the root directory with the required environment variables.
 
 ```
-key="23"
-key="34"
-MAIL_USERNAME="your gmail username"
-MAIL_PASSWORD="your gmail password"
+SID=Twilio_account_sid
+AUTH=twilio_account_token
+MAIL_USERNAME=your_gmail_username
+MAIL_PASSWORD=your_gmail_password
 ```
 
 -   Run `python databasereset.py` to create the database. You can enter your own credentials instead of the defaut host.
 -   Run `python run.py` to start the development server.
 -   Visit http://localhost.com:5000 in your faviourite browser to view the application.
+
+## Important note<a name="imp_note"></a>
+- The application that is deployed or that you will run locally can face some issues while sending the mails and messages. 
+
+- **Mails**
+- _local deployement:_ After entering your email and password in the `.env` file, you must also toggle on [this gmail setting](https://myaccount.google.com/lesssecureapps) for your account.
+- _heroku deployed app:_ I have made a gmail account for exactly the above necessary step. Therefore the mails can be sent without any problem from the heroku deployed app.
+
+- **Messages** - 
+- _local_deployement:_ The application uses the free tier of twilio message sending api. In addition to adding the auto keys in the `.env` file, you must also manually white-list the numbers that you aim to send the message from your twilio developer dashboard. 
+- _heroku deployed app:_ For the deployed version of the application, I have whitelisted my phone numbers. Therefore, the messages will be sent only to those two numbers.
