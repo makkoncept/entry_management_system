@@ -1,0 +1,18 @@
+{% extends "layout.html" %} {% block content %}
+<h3 class="mb-3">Application Stack</h3>
+<ul class="mb-5" style="list-style-type:disc">
+    <li class="mb-2">
+        The backend of the application will be in Flask (Python) with some extensions like Flask-sqlalchemy,
+        Flask-wtforms, Flask-migrate, Flask-login etc.
+    </li>
+    <li class="mb-2">Sqlite database is used for the development.</li>
+    <li class="mb-2">Jinja for templating reusable html code.</li>
+    <li class="mb-2">Web app is hosted on the hobby plan of Heroku with Postgres database.</li>
+    <li class="mb-2">Flask-bcrypt for password hashing.</li>
+    <li class="mb-2">Bootstrap4 and custom css a responsive and modern UI.</li>
+    <li class="mb-2">Flask-Mail to send the mail notifications.</li>
+    <li class="mb-2">Nexmo API to send message notifications. (trial account)</li>
+    <li class="mb-2">Version control: git and source code is hosted on github.</li>
+</ul>
+<h5 class="mt-4 text-secondary">Developed by: <a href="http://github.com/makkoncept">Mayank Nader</a></h5>
+{% endblock content %}

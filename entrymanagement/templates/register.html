@@ -1,0 +1,82 @@
+{% extends "layout.html" %} {% block content %}
+<div class="row">
+    <div class="col-lg-9 mx-auto">
+        <h2 class="text-center text-uppercase mb-0 mt-3">Register as a host</h2>
+        <hr class="star-dark mb-5" />
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label") }} {% if form.username.errors %} {{
+                    form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %} {{ form.username(class="form-control form-control-lg") }} {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }} {% if form.email.errors %} {{
+                    form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %} {{ form.email(class="form-control form-control-lg") }} {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.phone_no.label(class="form-control-label") }} {% if form.phone_no.errors %} {{
+                    form.phone_no(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.phone_no.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %} {{ form.phone_no(class="form-control form-control-lg") }} {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.address.label(class="form-control-label") }} {% if form.address.errors %} {{
+                    form.address(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.address.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %} {{ form.address(class="form-control form-control-lg") }} {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }} {% if form.password.errors %} {{
+                    form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %} {{ form.password(class="form-control form-control-lg") }} {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.confirm_password.label(class="form-control-label") }} {% if form.confirm_password.errors %}
+                    {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %} {{ form.confirm_password(class="form-control form-control-lg") }} {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-lg btn-outline-info") }}
+            </div>
+        </form>
+
+        <div class="border-top pt-3 mb-5">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
+            </small>
+        </div>
+    </div>
+    {% endblock content %}
+</div>

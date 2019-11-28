@@ -1,0 +1,8 @@
+__pycache__
+entrymanagement/__pycache__
+venv/
+app.db
+*.pyc
+.vscode
+todo.md
+.env

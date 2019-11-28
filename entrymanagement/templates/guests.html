@@ -1,0 +1,32 @@
+{% extends "layout.html" %} {% block content %}
+<legend class="border-bottom mb-4 text-center text-success">Your Guests</legend>
+<div class="table-responsive">
+    <table id="allcoins" class="table table-bordered table-reflow text-center">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone No.</th>
+                <th>Check In</th>
+                <th>Check Out</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for guest in guests %}
+            <tr>
+                <!-- <th scope="row">{{ loop.index }}</th> -->
+                <td>{{ loop.index }}</td>
+                <td>{{ guest.checkin_timestamp | getdate }}</td>
+                <td>{{ guest.guestname }}</td>
+                <td>{{ guest.email }}</td>
+                <td>{{ guest.phone_no }}</td>
+                <td>{{ guest.checkin_timestamp | get_time_from_timestamp }}</td>
+                <td>{{ guest.checkout_timestamp | get_time_from_timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

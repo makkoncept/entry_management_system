@@ -1,0 +1,17 @@
+{% extends "layout.html" %} {% block content %}
+<div class="content-section">
+    <div class="media">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary"><span class="text-dark">Email: </span>{{ user.email }}</p>
+            <p class="text-secondary"><span class="text-dark">Phone No.: </span>{{ user.phone_no }}</p>
+            {% if current_user.username == username %}
+            <div class="mt-4">
+                <a href="{{url_for('update_account')}}">Update your details</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

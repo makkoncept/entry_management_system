@@ -1,0 +1,33 @@
+{% extends "layout.html" %} {% block content %}
+<div class="mb-5">
+    <h1 class="text-center">Entry Management Application</h1>
+    <div class="text-center">
+        <p class="text-dark">
+            This is a simple Entry Management Application which you can use to keep track of the entries of the guest in
+            your office.
+        </p>
+        <p class="text-dark">
+            If you are a host, then you can register yourself. After that you can login into your account to see the
+            guests that have checked in and out. Email and message notification is also triggered when a guest checks
+            in, therefore please enter valid email and phone number.
+        </p>
+        <p class="text-dark">
+            If you are a Guest, then you can checkin into any registered host office by filling a simple form. When you
+            will checkout, a message and mail will be sent to you with the details of your visit, therefore please enter
+            a valid email and phone number.
+        </p>
+    </div>
+    {% if not current_user.is_authenticated %}
+    <div class="text-center">
+        <a class="btn btn-outline-primary" href="{{url_for('register')}}">Register as a host</a>
+        <a class="btn btn-outline-primary" href="{{url_for('checkin')}}">Guest check in</a>
+    </div>
+    {% else %}
+    <div class="text-center">
+        <a class="btn btn-outline-success" href="{{url_for('guests', username=current_user.username)}}"
+            >View your guest details</a
+        >
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends "layout.html" %} {% block content %}
+<div class="row">
+    <div class="col-lg-9 mx-auto">
+        <h2 class="text-center text-uppercase mb-0 mt-3">Guest check in</h2>
+        <hr class="star-dark mb-5" />
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <div class="form-group">
+                    {{ form.guestname.label(class="form-control-label") }} {% if form.guestname.errors %} {{
+                    form.guestname(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.guestname.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %} {{ form.guestname(class="form-control form-control-lg") }} {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }} {% if form.email.errors %} {{
+                    form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %} {{ form.email(class="form-control form-control-lg") }} {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.phone_no.label(class="form-control-label") }} {% if form.phone_no.errors %} {{
+                    form.phone_no(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.phone_no.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %} {{ form.phone_no(class="form-control form-control-lg") }} {% endif %}
+                </div>
+                <div class="control-group">
+                    <div class="form-group  floating-label-form-group controls mb-0 pb-2">
+                        {{ form.host_name.label(class="form-control-label") }} {{ form.host_name(class_='form-control
+                        text-uppercase') }} {% for error in form.host_name.errors %}
+                        <strong>{{ error }}</strong>
+                        {% endfor %}
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-lg btn-outline-info") }}
+            </div>
+        </form>
+
+        <div class="border-top pt-3 mb-5">
+            <small class="text-muted">
+                Already checked in?<a class="ml-2" href="{{ url_for('checkout') }}">Check Out</a>
+            </small>
+        </div>
+    </div>
+    {% endblock content %}
+</div>
