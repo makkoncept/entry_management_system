@@ -126,12 +126,13 @@ MAIL_PASSWORD=your_gmail_password
 -   Visit http://localhost.com:5000 in your faviourite browser to view the application.
 
 ## Important note<a name="imp_note"></a>
-- The application that is deployed or that you will run locally can face some issues while sending the mails and messages. 
+The application that is deployed or that you will run locally can face some issues while sending the mails and messages. 
 
 - **Mails**
-- _local deployement:_ After entering your email and password in the `.env` file, you must also toggle on [this gmail setting](https://myaccount.google.com/lesssecureapps) for your account.
-- _heroku deployed app:_ I have made a gmail account for exactly the above necessary step. Therefore the mails can be sent without any problem from the heroku deployed app.
+    - _local deployement:_ After entering your email and password in the `.env` file, you must also toggle on [this gmail setting](https://myaccount.google.com/lesssecureapps) for your account.
+    - _heroku deployed app:_ I have made a gmail account for exactly the above necessary step. Therefore the mails can be sent without any problem from the heroku deployed app.
 
 - **Messages** - 
-- _local_deployement:_ The application uses the free tier of twilio message sending api. In addition to adding the auto keys in the `.env` file, you must also manually white-list the numbers that you aim to send the message from your twilio developer dashboard. 
-- _heroku deployed app:_ For the deployed version of the application, I have whitelisted my phone numbers. Therefore, the messages will be sent only to those two numbers.
+    - _local_deployement:_ The application uses the free tier of twilio message sending api. In addition to adding the auto keys in the `.env` file, you must also manually white-list the numbers that you aim to send the message to your twilio developer dashboard. 
+    - _heroku deployed app:_ For the deployed version of the application, I have whitelisted my phone numbers. Therefore, the messages will be sent only to those two numbers.
+ 
