@@ -29,7 +29,7 @@ psycopg2-binary==2.8.4
 pycodestyle==2.5.0
 pycparser==2.19
 pyflakes==2.1.1
-PyJWT==1.7.1
+PyJWT==2.4.0
 python-dotenv==0.10.3
 pytz==2019.3
 regex==2019.11.1
